@@ -104,7 +104,7 @@ if __name__ == '__main__':
 
     repo_url = "https://github.com/eitansela/sagemaker-dvc-catboost-demo"
     branch_name = "dataset_01"
-    print(f"Cloning repo: {repo_url}, branch: {branch_name}")
+    print(f"Cloning repo: {repo_url}, branch_name: {branch_name}")
 
     subprocess.check_call(["git", "clone", "--branch", branch_name, repo_url, input_path])
     print(glob.glob(input_path+"/data/*"))
