@@ -1,4 +1,0 @@
-[core]
-    remote = storage
-['remote "storage"']
-    url = s3://aws-ml-blog/artifacts/sagemaker-dvc-catboost-demo/
