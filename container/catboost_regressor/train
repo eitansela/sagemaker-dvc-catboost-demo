@@ -103,14 +103,16 @@ def train():
 if __name__ == '__main__':
 
     repo_url = "https://github.com/eitansela/sagemaker-dvc-catboost-demo"
-    print(f"Cloning repo: {repo_url}")
-    subprocess.check_call(["git", "clone", repo_url])
-    print(glob.glob("./*"))
+    branch_name = "dataset_01"
+    print(f"Cloning repo: {repo_url}, branch: {branch_name}")
 
-    os.chdir("./sagemaker-catboost-dvc-demo/")
+    subprocess.check_call(["git", "clone", "--branch", branch_name, repo_url, input_path])
+    print(glob.glob(input_path+"/data/*"))
+
+    os.chdir(input_path+"/data/")
     subprocess.check_call(["dvc", "pull"])
 
-    print(glob.glob("./sagemaker-catboost-dvc-demo/data/*"))
+    print(glob.glob(input_path+"/data/*"))
 
     # train()
 
