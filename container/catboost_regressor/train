@@ -107,12 +107,12 @@ if __name__ == '__main__':
     print(f"Cloning repo: {repo_url}, branch_name: {branch_name}")
 
     subprocess.check_call(["git", "clone", "--branch", branch_name, repo_url, input_path])
-    print(glob.glob(input_path+"/data/*"))
+    print(glob.glob(input_path+"/dataset/*"))
 
-    os.chdir(input_path+"/data/")
+    os.chdir(input_path+"/dataset/")
     subprocess.check_call(["dvc", "pull"])
 
-    print(glob.glob(input_path+"/data/*"))
+    print(glob.glob(input_path+"/dataset/*"))
 
     # train()
 
