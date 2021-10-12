@@ -36,12 +36,6 @@ def train():
     print('Starting the training.')
 
     try:
-        # Read in any hyperparameters that the user passed with the training job
-        print('Reading hyperparameters data: {}'.format(param_path))
-        with open(param_path) as json_file:
-            hyperparameters_data = json.load(json_file)
-        print('hyperparameters_data: {}'.format(hyperparameters_data))
-
         # Take the set of train files and read them all into a single pandas dataframe
         train_input_files = [os.path.join(train_path, file) for file in glob.glob(train_path+"/*.csv")]
         if len(train_input_files) == 0:
@@ -102,22 +96,32 @@ def train():
         sys.exit(255)
 
 
-if __name__ == '__main__':
+# Read in any hyperparameters that the user passed with the training job
+def get_hyperparameters():
+    print('Reading hyperparameters data: {}'.format(param_path))
+    with open(param_path) as json_file:
+        hyperparameters_data = json.load(json_file)
+    print('hyperparameters_data: {}'.format(hyperparameters_data))
+    return hyperparameters_data
 
-    repo_url = "https://github.com/eitansela/sagemaker-dvc-catboost-demo"
-    branch_name = "dev_dataset_1"
-    print(f"Cloning repo: {repo_url}, branch_name: {branch_name}")
 
-    subprocess.check_call(["git", "clone", "--branch", branch_name, repo_url, input_path])
-    print(glob.glob(input_path+"/dataset/*"))
+def clone_dvc_git_repo(dvc_repo_url, dvc_branch_name):
+    print(f"Cloning repo: {dvc_repo_url}, branch_name: {dvc_branch_name}")
 
-    os.chdir(input_path+"/dataset/")
+    subprocess.check_call(["git", "clone", "--branch", dvc_branch_name, dvc_repo_url, input_path])
+
+
+def dvc_pull():
+    print("Running dvc pull command")
+    os.chdir(input_path + "/dataset/")
     subprocess.check_call(["dvc", "pull"])
 
-    print(glob.glob("/opt/ml/input/data/dataset/test/*"))
-    print(glob.glob("/opt/ml/input/data/dataset/train/*"))
-    print(glob.glob("/opt/ml/input/data/dataset/validation/*"))
 
+if __name__ == '__main__':
+
+    hyperparameters = get_hyperparameters()
+    clone_dvc_git_repo(hyperparameters["dvc-repo-url"], hyperparameters["dvc-branch-name"])
+    dvc_pull()
     train()
 
     # A zero exit dependencies causes the job to be marked a Succeeded.

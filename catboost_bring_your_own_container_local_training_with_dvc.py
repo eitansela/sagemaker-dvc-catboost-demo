@@ -30,7 +30,12 @@ local_regressor = Estimator(
     image,
     role,
     instance_count=1,
-    instance_type="local")
+    instance_type="local",
+    hyperparameters={
+        "dvc-repo-url": "https://github.com/eitansela/sagemaker-dvc-catboost-demo",
+        "dvc-branch-name":  "dev_dataset_1"
+    },
+)
 
 local_regressor.fit()
 
