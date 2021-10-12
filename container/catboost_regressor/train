@@ -7,6 +7,7 @@ import glob
 import logging
 import os
 import json
+import re
 import subprocess
 import traceback
 import sys
@@ -17,14 +18,15 @@ import pandas as pd
 
 prefix = '/opt/ml/'
 input_path = prefix + 'input/data'
+dataset_path = prefix + 'input/data/dataset'
 train_channel_name = 'train'
 validation_channel_name = 'validation'
 
 output_path = os.path.join(prefix, 'output')
 model_path = os.path.join(prefix, 'model')
 model_file_name = 'catboost-regressor-model.dump'
-train_path = os.path.join(input_path, train_channel_name)
-validation_path = os.path.join(input_path, validation_channel_name)
+train_path = os.path.join(dataset_path, train_channel_name)
+validation_path = os.path.join(dataset_path, validation_channel_name)
 
 param_path = os.path.join(prefix, 'input/config/hyperparameters.json')
 
@@ -41,7 +43,7 @@ def train():
         print('hyperparameters_data: {}'.format(hyperparameters_data))
 
         # Take the set of train files and read them all into a single pandas dataframe
-        train_input_files = [os.path.join(train_path, file) for file in os.listdir(train_path)]
+        train_input_files = [os.path.join(train_path, file) for file in glob.glob(train_path+"/*.csv")]
         if len(train_input_files) == 0:
             raise ValueError(('There are no files in {}.\n' +
                               'This usually indicates that the channel ({}) was incorrectly specified,\n' +
@@ -52,7 +54,7 @@ def train():
         train_df = pd.concat(raw_data)
 
         # Take the set of train files and read them all into a single pandas dataframe
-        validation_input_files = [os.path.join(validation_path, file) for file in os.listdir(validation_path)]
+        validation_input_files = [os.path.join(validation_path, file) for file in glob.glob(train_path+"/*.csv")]
         if len(validation_input_files) == 0:
             raise ValueError(('There are no files in {}.\n' +
                               'This usually indicates that the channel ({}) was incorrectly specified,\n' +
@@ -103,7 +105,7 @@ def train():
 if __name__ == '__main__':
 
     repo_url = "https://github.com/eitansela/sagemaker-dvc-catboost-demo"
-    branch_name = "dataset_01"
+    branch_name = "dev_dataset_1"
     print(f"Cloning repo: {repo_url}, branch_name: {branch_name}")
 
     subprocess.check_call(["git", "clone", "--branch", branch_name, repo_url, input_path])
@@ -112,9 +114,11 @@ if __name__ == '__main__':
     os.chdir(input_path+"/dataset/")
     subprocess.check_call(["dvc", "pull"])
 
-    print(glob.glob(input_path+"/dataset/*"))
+    print(glob.glob("/opt/ml/input/data/dataset/test/*"))
+    print(glob.glob("/opt/ml/input/data/dataset/train/*"))
+    print(glob.glob("/opt/ml/input/data/dataset/validation/*"))
 
-    # train()
+    train()
 
     # A zero exit dependencies causes the job to be marked a Succeeded.
     sys.exit(0)
