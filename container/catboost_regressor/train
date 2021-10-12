@@ -107,7 +107,6 @@ def get_hyperparameters():
 
 def clone_dvc_git_repo(dvc_repo_url, dvc_branch_name):
     print(f"Cloning repo: {dvc_repo_url}, branch_name: {dvc_branch_name}")
-
     subprocess.check_call(["git", "clone", "--branch", dvc_branch_name, dvc_repo_url, input_path])
 
 
