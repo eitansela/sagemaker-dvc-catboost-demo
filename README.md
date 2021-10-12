@@ -1,6 +1,6 @@
 ## Amazon SageMaker Local Mode with DVC Example
 
-This repository contains example and related resources showing you how to train a model with California housing dataset, fetched using DVC, and serve on your local machine using Amazon SageMaker Local mode. 
+This repository contains example and related resources showing you how to train a CatBoost model with California housing dataset, fetched using DVC, and serve on your local machine using Amazon SageMaker Local mode. 
 
 ## Overview
 
@@ -20,3 +20,8 @@ Pace, R. Kelley, and Ronald Barry. "Sparse spatial auto-regressions." Statistics
 DVC is built to make ML models shareable and reproducible. It is designed to handle large files, data sets, machine learning models, and metrics as well as code.
 
 [DVC Official Site](https://dvc.org/)
+
+## Branches used in this GitHub Repository
+In this example, there are two branches used in the GitHub repo: 
+- `main` - used to store the Python code and file needed to build the Docker image for CatBoost. 
+- `dev_dataset_1` - used to store DVC metadeta files and cache.
