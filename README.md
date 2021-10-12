@@ -1,4 +1,4 @@
-## Amazon SageMaker Local Mode with DVC Example
+## Amazon SageMaker CatBoost regression model with DVC Example
 ## This is `dev_dataset_1` branch used to store DVC metadata files and cache
 
 ## Commands used to create the branch using DVC
