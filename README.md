@@ -1,13 +1,29 @@
-## Amazon SageMaker Local Mode with DVC Example
+## Amazon SageMaker CatBoost regression model with DVC Example
 
-This repository contains example and related resources showing you how to train a CatBoost model with California housing dataset, fetched using DVC, and serve on your local machine using Amazon SageMaker Local mode. 
+This repository contains example and related resources showing you how to train a CatBoost model with California housing dataset, fetched using DVC. 
 
 ## Overview
+
+```bash
+.
+├── README.MD                                                      <-- This instructions file
+├── catboost_bring_your_own_container_local_training_with_dvc.py   <-- Python code to run example with SageMaker Local
+├── catboost_bring_your_own_container_training_with_dvc.ipynb      <-- Notebook to run example with SageMaker Notebooks instance
+├── container                                                      <-- All the components you need to package the sample algorithm for Amazon SageMager
+│   └── Dockerfile                                                 <-- Describes how to build your Docker container image
+│   └── catboost_regressor                                         <-- Contains the files that will be installed in the container
+```
 
 ### SageMaker Local Mode
 The local mode in the Amazon SageMaker Python SDK can emulate CPU (single and multi-instance) and GPU (single instance) SageMaker training jobs by changing a single argument in the TensorFlow, PyTorch or MXNet estimators.  To do this, it uses Docker compose and NVIDIA Docker.  It will also pull the Amazon SageMaker TensorFlow, PyTorch or MXNet containers from Amazon ECS, so you’ll need to be able to access a public Amazon ECR repository from your local environment.
 
 [Read the blog post](https://aws.amazon.com/blogs/machine-learning/use-the-amazon-sagemaker-local-mode-to-train-on-your-notebook-instance/)
+
+
+### SageMaker notebook instance
+An Amazon SageMaker notebook instance is a machine learning (ML) compute instance running the Jupyter Notebook App. SageMaker manages creating the instance and related resources. Use Jupyter notebooks in your notebook instance to prepare and process data, write code to train models, deploy models to SageMaker hosting, and test or validate your models.
+
+[Documentation](https://docs.aws.amazon.com/sagemaker/latest/dg/nbi.html)
 
 ### California Housing dataset
 We use the California Housing dataset, present in [Scikit-Learn](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html). 
