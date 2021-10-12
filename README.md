@@ -10,7 +10,9 @@ The local mode in the Amazon SageMaker Python SDK can emulate CPU (single and mu
 [Read the blog post](https://aws.amazon.com/blogs/machine-learning/use-the-amazon-sagemaker-local-mode-to-train-on-your-notebook-instance/)
 
 ### California Housing dataset
-We use the California Housing dataset, present in Scikit-Learn: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html. The California Housing dataset was originally published in:
+We use the California Housing dataset, present in [Scikit-Learn](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html). 
+
+The California Housing dataset was originally published in:
 
 Pace, R. Kelley, and Ronald Barry. "Sparse spatial auto-regressions." Statistics & Probability Letters 33.3 (1997): 291-297.
 
