@@ -1,5 +1,5 @@
 ## Amazon SageMaker CatBoost regression model with DVC Example
-## This is `dev_dataset_1` branch used to store DVC metadata files and cache
+## This is `dev_dataset_2` branch used to store DVC metadata files and cache
 
 ## Commands used to create the branch using DVC
 Below are the commands used to create this branch using DVC.
