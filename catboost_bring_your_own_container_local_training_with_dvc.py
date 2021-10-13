@@ -41,7 +41,7 @@ def main():
         instance_count=1,
         instance_type="local",
         hyperparameters={
-            "dvc-repo-url": "https://github.com/eitansela/sagemaker-dvc-catboost-demo",
+            "dvc-repo-url": "https://github.com/eitansela/sagemaker-dvc-catboost-demo.git",
             "dvc-branch-name":  "dev_dataset_1"
         },
     )
