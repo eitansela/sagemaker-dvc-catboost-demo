@@ -4,7 +4,7 @@
 ## Commands used to create the branch using DVC
 Below are the commands used to create this branch using DVC.
 
-### Initialize DVC in dataset_1 branch
+### Initialize DVC in `dev_dataset_1 branch`
 ```console
 dvc init
 git commit -m "Initialize DVC"
