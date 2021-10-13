@@ -14,6 +14,13 @@ This repository contains example and related resources showing you how to train 
 │   └── catboost_regressor                                         <-- Contains the files that will be installed in the container
 ```
 
+## Branches used in this GitHub Repository
+In this example, there are two branches used in the GitHub repo: 
+- `main` - used to store the Python code and file needed to build the Docker image for CatBoost. 
+- `dev_dataset_1` - used to store DVC metadata files and cache for development dataset #1.
+- `dev_dataset_2` - used to store DVC metadata files and cache for development dataset #2.
+
+
 ### SageMaker Local Mode
 The local mode in the Amazon SageMaker Python SDK can emulate CPU (single and multi-instance) and GPU (single instance) SageMaker training jobs by changing a single argument in the TensorFlow, PyTorch or MXNet estimators.  To do this, it uses Docker compose and NVIDIA Docker.  It will also pull the Amazon SageMaker TensorFlow, PyTorch or MXNet containers from Amazon ECS, so you’ll need to be able to access a public Amazon ECR repository from your local environment.
 
@@ -37,8 +44,3 @@ DVC is built to make ML models shareable and reproducible. It is designed to han
 
 [DVC Official Site](https://dvc.org/)
 
-## Branches used in this GitHub Repository
-In this example, there are two branches used in the GitHub repo: 
-- `main` - used to store the Python code and file needed to build the Docker image for CatBoost. 
-- `dev_dataset_1` - used to store DVC metadata files and cache for development dataset #1.
-- `dev_dataset_2` - used to store DVC metadata files and cache for development dataset #2.
