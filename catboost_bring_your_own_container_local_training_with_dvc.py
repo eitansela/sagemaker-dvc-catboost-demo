@@ -57,7 +57,7 @@ def main():
 
     # Invoke local mode endpoint to get predictions
     print('Invoking local mode endpoint to get predictions.')
-    predicted = predictor.predict(testX[data.feature_names].to_csv(header=False, index=False)).decode('utf-8')
+    predicted = predictor.predict(testX[data.feature_names].head(10).to_csv(header=False, index=False)).decode('utf-8')
     print(predicted)
 
     # Delete the local endpoint
