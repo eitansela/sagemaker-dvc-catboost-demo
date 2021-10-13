@@ -40,4 +40,5 @@ DVC is built to make ML models shareable and reproducible. It is designed to han
 ## Branches used in this GitHub Repository
 In this example, there are two branches used in the GitHub repo: 
 - `main` - used to store the Python code and file needed to build the Docker image for CatBoost. 
-- `dev_dataset_1` - used to store DVC metadata files and cache.
+- `dev_dataset_1` - used to store DVC metadata files and cache for development dataset #1.
+- `dev_dataset_2` - used to store DVC metadata files and cache for development dataset #2.
