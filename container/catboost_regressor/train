@@ -48,7 +48,7 @@ def train():
         train_df = pd.concat(raw_data)
 
         # Take the set of train files and read them all into a single pandas dataframe
-        validation_input_files = [os.path.join(validation_path, file) for file in glob.glob(train_path+"/*.csv")]
+        validation_input_files = [os.path.join(validation_path, file) for file in glob.glob(validation_path+"/*.csv")]
         if len(validation_input_files) == 0:
             raise ValueError(('There are no files in {}.\n' +
                               'This usually indicates that the channel ({}) was incorrectly specified,\n' +
