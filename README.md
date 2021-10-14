@@ -40,3 +40,8 @@ git add .dvc/config
 git commit -m "Configure DVC remote storage"
 dvc push
 ```
+
+### Retrieve our DVC-tracked dataset files from S3
+```console
+dvc pull
+```
