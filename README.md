@@ -6,12 +6,12 @@ This repository contains example and related resources showing you how to train 
 
 ```bash
 .
-├── README.MD                                                      <-- This instructions file
-├── catboost_bring_your_own_container_local_training_with_dvc.py   <-- Python code to run example with SageMaker Local
-├── catboost_bring_your_own_container_training_with_dvc.ipynb      <-- Notebook to run example with SageMaker Notebooks instance
-├── container                                                      <-- All the components you need to package the sample algorithm for Amazon SageMager
-│   └── Dockerfile                                                 <-- Describes how to build your Docker container image
-│   └── catboost_regressor                                         <-- Contains the files that will be installed in the container
+├── README.MD                                                     <-- This instructions file
+├── catboost_bring_your_own_container_local_training_with_dvc.py  <-- Python code to run example with SageMaker Local
+├── catboost_bring_your_own_container_training_with_dvc.ipynb     <-- Notebook to run example with SageMaker Notebooks instance
+├── container                                                     <-- All the components you need to package the sample algorithm for Amazon SageMager
+│   └── Dockerfile                                                <-- Describes how to build your Docker container image
+│   └── catboost_regressor                                        <-- Contains the files that will be installed in the container
 ```
 
 ## Branches used in this GitHub Repository
